@@ -1995,9 +1995,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      users: {}
+    };
+  },
+  methods: {
+    loadAll: function loadAll() {
+      var _this = this;
+
+      axios.get('api/users').then(function (_ref) {
+        var data = _ref.data;
+        return _this.users = data;
+      });
+    }
+  },
+  created: function created() {
+    this.loadAll();
   }
 });
 
@@ -37702,22 +37720,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _vm._v("\n            Users\n        ")
-        ])
-      ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c(
+        "div",
+        { staticClass: "col-md-8" },
+        _vm._l(this.users, function(user) {
+          return _c("div", { key: user.id }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(user.name) +
+                "\n                " +
+                _vm._s(user.email) +
+                "\n            "
+            )
+          ])
+        }),
+        0
+      )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

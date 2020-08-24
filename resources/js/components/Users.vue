@@ -2,7 +2,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                Users
+                <div v-for="user in this.users" :key="user.id">
+                    {{user.name}}
+                    {{user.email}}
+                </div>
             </div>
         </div>
     </div>
@@ -11,8 +14,18 @@
 <script>
 
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data(){
+            return {
+                users:{}
+            }
+        },
+        methods:{
+            loadAll(){
+                axios.get('api/users').then(({ data }) => (this.users = data));
+            }
+        },
+        created() {
+            this.loadAll();
         }
     }
 </script>
