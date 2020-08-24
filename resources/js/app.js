@@ -15,7 +15,7 @@ Vue.use(VueRouter);
 //Routes
 let routes = [
     { path: '/test', component: require('./components/test.vue').default },
-    { path: '/profile', component: require('./components/Profile.vue').default },
+    { name: "wtf", path: '/profile/:id', component: require('./components/Profile.vue').default },
     { path: '/users', component: require('./components/Users.vue').default },
 ];
   

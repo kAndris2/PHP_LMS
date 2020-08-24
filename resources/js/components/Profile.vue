@@ -2,7 +2,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                Profile
+                <p>ID: {{this.user.id}}</p>
+                <p>Name: {{this.user.name}}</p>
+                <p>E-mail: {{this.user.email}}</p>
             </div>
         </div>
     </div>
@@ -11,8 +13,22 @@
 <script>
 
     export default {
+        data(){
+            return {
+                userID : window.location.href.split('/').pop(),
+                user : undefined
+            }
+        },
+        methods:{
+            handleUsersResponse(response){
+                response.data.map(user => {
+                    if (user.id == this.userID)
+                        this.user = user;
+                });
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            axios.get('api/users').then(this.handleUsersResponse);
         }
     }
 </script>

@@ -1968,9 +1968,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userID: window.location.href.split('/').pop(),
+      user: undefined
+    };
+  },
+  methods: {
+    handleUsersResponse: function handleUsersResponse(response) {
+      var _this = this;
+
+      response.data.map(function (user) {
+        if (user.id == _this.userID) _this.user = user;
+      });
+    }
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    axios.get('api/users').then(this.handleUsersResponse);
   }
 });
 
@@ -1985,6 +2002,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37683,22 +37709,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _vm._v("\n            Profile\n        ")
-        ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("p", [_vm._v("ID: " + _vm._s(this.user.id))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Name: " + _vm._s(this.user.name))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("E-mail: " + _vm._s(this.user.email))])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37721,27 +37744,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
+    _c(
+      "table",
+      { staticClass: "table table-striped" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
         _vm._l(this.users, function(user) {
-          return _c("div", { key: user.id }, [
-            _vm._v(
-              "\n                " +
-                _vm._s(user.name) +
-                "\n                " +
-                _vm._s(user.email) +
-                "\n            "
-            )
+          return _c("tr", { key: user.id }, [
+            _c("td", [_vm._v(_vm._s(user.id))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: { name: "wtf", params: { id: user.id } } } },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(user.name) +
+                        "\n                "
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(user.email))])
           ])
-        }),
-        0
-      )
-    ])
+        })
+      ],
+      2
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("ID")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("E-mail")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -53046,7 +53098,8 @@ var routes = [{
   path: '/test',
   component: __webpack_require__(/*! ./components/test.vue */ "./resources/js/components/test.vue")["default"]
 }, {
-  path: '/profile',
+  name: "wtf",
+  path: '/profile/:id',
   component: __webpack_require__(/*! ./components/Profile.vue */ "./resources/js/components/Profile.vue")["default"]
 }, {
   path: '/users',
@@ -53423,8 +53476,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/test/test/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/test/test/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Gyakran hasznalt\Projects\Codecool\PHP\LMS\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Gyakran hasznalt\Projects\Codecool\PHP\LMS\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -1,13 +1,22 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div v-for="user in this.users" :key="user.id">
-                    {{user.name}}
-                    {{user.email}}
-                </div>
-            </div>
-        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>E-mail</th>
+            </tr>
+
+            <tr v-for="user in this.users" :key="user.id">
+                <td>{{user.id}}</td>
+                <td>
+                    <router-link :to="{name : 'wtf', params: {id: user.id}}" >
+                        {{user.name}}
+                    </router-link>
+                </td>
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
     </div>
 </template>
 
