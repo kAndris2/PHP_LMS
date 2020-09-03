@@ -1970,6 +1970,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37716,7 +37717,9 @@ var render = function() {
         _vm._v(" "),
         _c("p", [_vm._v("Name: " + _vm._s(this.user.name))]),
         _vm._v(" "),
-        _c("p", [_vm._v("E-mail: " + _vm._s(this.user.email))])
+        _c("p", [_vm._v("E-mail: " + _vm._s(this.user.email))]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Role: " + _vm._s(this.user.type))])
       ])
     ])
   ])
@@ -53476,8 +53479,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Gyakran hasznalt\Projects\Codecool\PHP\LMS\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Gyakran hasznalt\Projects\Codecool\PHP\LMS\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/test/PHP_LMS/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/test/PHP_LMS/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

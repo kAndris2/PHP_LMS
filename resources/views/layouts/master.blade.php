@@ -77,7 +77,7 @@
           </li>
             <!-- Profile -->
           <li class="nav-item">
-            <router-link to='{{ "profile/".Auth::user()->id }}' class="nav-link">
+            <router-link to='{{ "/profile/".Auth::user()->id }}' class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profile
@@ -93,6 +93,17 @@
               </p>
             </a>
           </li>
+          <!-- Mentor -->
+          @can('isMentor')
+          <li class="nav-item">
+            <router-link to="#" class="nav-link">
+              <i class="nav-icon fas fa-user-shield"></i>
+              <p>
+                Mentor Stuff
+              </p>
+            </a>
+          </li>
+          @endcan
           <!-- Logout -->
           <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"

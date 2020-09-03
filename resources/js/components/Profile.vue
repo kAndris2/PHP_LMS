@@ -5,6 +5,7 @@
                 <p>ID: {{this.user.id}}</p>
                 <p>Name: {{this.user.name}}</p>
                 <p>E-mail: {{this.user.email}}</p>
+                <p>Role: {{this.user.type}}</p>
             </div>
         </div>
     </div>
