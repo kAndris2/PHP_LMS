@@ -43,6 +43,7 @@
                   <label>Jelszó</label>
                   <input v-model="user.password" type="password" name="password" id="password"
                     placeholder="Jelszó"
+                    required
                     class="form-control">
                 </div>
 

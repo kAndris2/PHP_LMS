@@ -2020,6 +2020,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37902,7 +37903,8 @@ var render = function() {
                           type: "password",
                           name: "password",
                           id: "password",
-                          placeholder: "Jelszó"
+                          placeholder: "Jelszó",
+                          required: ""
                         },
                         domProps: { value: _vm.user.password },
                         on: {
